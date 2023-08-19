@@ -1,4 +1,4 @@
-// IEEE 754-2008
+ // IEEE 754-2008
 let num1 = 0.7; // number
 let num2 = 0.1; // number
 

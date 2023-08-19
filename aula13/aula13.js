@@ -5,7 +5,7 @@ let umaString = 'Meu valor';
 
 // Caractere de escape \
 console.log(umaString.charAt(-1)); // Retorna o valor da pos
-console.log(umaString.charCodeAt(4)); // Retorna o código inteiro que repsetanta o valor na tabela asc
+console.log(umaString.charCodeAt(4)); // Retorna o código inteiro que representa o valor na tabela asc
 console.log(umaString.concat(' ', 'ei', ' ', 'sister')); // raramente usado
 console.log(umaString.indexOf('e', 0)); // Retorna o índice
 console.log(umaString.lastIndexOf('e', umaString.length)); // Retorna o índice
@@ -18,3 +18,4 @@ console.log(umaString.split(' ', 2));
 console.log(umaString.toUpperCase());
 console.log(umaString.toLowerCase());
 
+// Strings são  indexadas no JS. Cada um dos caracteres de uma string também correspondem a um número de índice, começando com o número de índic e 0.
