@@ -52,17 +52,20 @@
 
 
 
-// executando funcoes dentro de um objeto para o mesmo retornar valores. Sao Objetos que são tratados por funções.
+// executando métodos/ funcoes dentro de um objeto para o mesmo retornar valores. 
+// Sao Objetos que são tratados por funções internas e chamados de métodos.
 // Usando o "this" dentro da funcao para ter acesso ao método do objeto. 
 const pessoa1 = {
   nome: 'Luiz',
   sobrenome: 'Miranda',
   idade: 25,
 
+  // Esse método usando o this dentro da função nos permite acessar o método dentro do objeto
   fala() {
-    console.log(`Idade++: ${this.idade}.`); // o this dentro da função nos permite acessar o método dentro do objeto
+    
+    console.log(`Idade++: ${this.idade}.`); 
   },
-
+  // Esse método usando o this dentro da função nos permite acessar o método dentro do objeto
   incrementaIdade() {
     this.idade++;
   }
