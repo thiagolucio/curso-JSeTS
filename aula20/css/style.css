@@ -1,0 +1,73 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: brown;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.container-fluid {
+    display: flex;
+    justify-content: space-around;
+    padding: 16px;
+}
+
+.formulario {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 30%;
+    height: 100vh;
+}
+
+input[type="text"] {
+    height: 40px;
+    padding: 0 20px;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    min-width: 80%;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.btn {
+    padding: 4% 8%;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    background: rgb(29, 59, 94);
+    color: white;
+    
+}
+.btn:hover {
+    transition: all 0.2s ease-in-out;
+    background: royalblue;
+    cursor: pointer;
+    margin-top: 1.4px;
+}
+
+label {
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+.container-resultado {
+    width: 70%;
+}
+.cabecalho,
+.resultado p {
+  width: calc(100% - 16 * 4);
+  display: flex;
+  justify-content: space-around;
+  padding: 16px;
+  color: white;
+}
+
+.cabecalho {
+  color: white;
+  font-size: 20px;
+}
+
+.resultado span {
+  transition: all 0.9s ease-in-out;
+} 
