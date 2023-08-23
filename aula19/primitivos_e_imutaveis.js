@@ -1,10 +1,7 @@
 /*
-1)Valores copiados
-Primitivos (imutáveis) - string, number, boolean, undefined, 
-null (bigint, symbol)
+1)Valores serão copiados (são primitivos) - imutáveis: string, number, boolean, undefined, null (bigint, symbol)
 
-2) Passados por referência
-Referência (mutável) - array, object, function
+2) Passados por referência (são mutáveis): array, object, function
 */
          // 0123
 // let nome = 'Luiz';
