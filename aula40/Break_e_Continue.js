@@ -7,6 +7,8 @@ let i = 0;
 do {
   let numero = numeros[i];
 
+  // console.log('> ', numero);
+
   if (numero === 2) {
     console.log('Pulei o número 2');
     i++;
@@ -16,7 +18,7 @@ do {
   console.log(numero);
 
   if (numero === 7) {
-    console.log('7 encontrado, saindo...');
+    console.log('Encontrado! ...Saindo agora...');
     i++;
     break;
   }

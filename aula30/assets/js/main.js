@@ -34,5 +34,6 @@
 // h1.innerHTML = criaData(data);
 
 const h1 = document.querySelector('.container h1');
+// h1.innerHTML = 'Só pra vc ver funcionando';
 const data = new Date();
 h1.innerHTML = data.toLocaleDateString('pt-BR', { dateStyle: 'full', timeStyle: 'short' });

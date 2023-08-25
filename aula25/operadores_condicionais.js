@@ -17,4 +17,4 @@ if (numero >= 0 && numero <= 5) {
   console.log('O número não está entre 0 e 11.');
 }
 
-console.log('...Aqui vai o resto do código.');
+console.log('...Saiu do bloco e vc já pode colocar mais código aqui.');

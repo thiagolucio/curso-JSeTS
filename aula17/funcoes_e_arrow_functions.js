@@ -52,9 +52,27 @@
 // const raiz = n => n ** 0.5
 
 
+
+// function teste(nome, idade) {
+//     nome: nome;
+//     idade: idade;
+//     console.log(`Meu nome é:  ${nome}, e minha idade é: ${idade}`);
+//   }  
+//   teste('Ricardo', 18);
+  
+  // Diferença entre funcao normal(acima) e uma arrow function (abaixo)  
+//   const teste2 = (nome, idade) => {
+//     return `Meu nome é:  ${nome}, e minha idade é: ${idade}`;
+//   }
+  
+//   const segundoNome = teste2('Jorge', 32);
+//   console.log(segundoNome);
+
+// Criando uma funcao de uma constante
 const raiz = (n) => {
     return n ** 0.5;
-}
+}; // neste caso é necessário colocar ponto e vírgula no final
+
 
 console.log(raiz(9));
 console.log(raiz(16));

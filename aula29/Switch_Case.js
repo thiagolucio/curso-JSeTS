@@ -1,10 +1,11 @@
-function getDiaSemanaTexto(diaSemana) {
+// Indica o dia da semana em funcao do numero do dia
+function getDiaSemanaTexto(diaSemanaParametro) {
   let diaSemanaTexto;
 
-  switch (diaSemana) {
+  switch (diaSemanaParametro) {
   case 0:
     diaSemanaTexto = 'Domingo';
-    return diaSemanaTexto;
+    return diaSemanaTexto; // o return substitui o break para parar de executar a sequencia e já devolver o valor  
   case 1:
     diaSemanaTexto = 'Segunda';
     return diaSemanaTexto;
@@ -31,6 +32,6 @@ function getDiaSemanaTexto(diaSemana) {
 
 const data = new Date('1987-04-21 00:00:00');
 const diaSemana = data.getDay();
-const diaSemanaTexto = getDiaSemanaTexto(diaSemana);
+const diaSemanaTextoForaFuncao = getDiaSemanaTexto(diaSemana);
 
-console.log(diaSemana, diaSemanaTexto);
+console.log(diaSemana, diaSemanaTextoForaFuncao);

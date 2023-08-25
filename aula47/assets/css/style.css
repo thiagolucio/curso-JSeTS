@@ -12,7 +12,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: var(--primary-color);
+  background: rgb(56, 56, 71);
   font-family: 'Open sans', sans-serif;
   font-size: 1.3em;
   line-height: 1.5em;
@@ -21,10 +21,12 @@ body {
 .container {
   max-width: 640px;
   margin: 50px auto;
-  background: #fff;
+  background: #111;
   padding: 20px;
   border-radius: 10px;
 }
+
+.container h1 {color: white}
 
 form input, form label, form button {
   display: block;
@@ -58,8 +60,22 @@ form button:hover {
 }
 .relogio {
   font-size: 3em;
+  color: white;
 }
 
 .pausado {
   color: red;
+}
+
+section button {
+  background: rgb(56, 56, 71);;
+  padding: 8px 20px;
+  border-radius: 6px;
+  border: none;
+  color: white;
+  font-size: 14px;
+}
+section button:hover {
+  background: rgb(91, 91, 150);;
+  cursor: pointer;
 }

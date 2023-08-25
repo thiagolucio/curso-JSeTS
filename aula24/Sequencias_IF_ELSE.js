@@ -7,7 +7,7 @@ Entre 18 - 23 - Boa noite
 // If pode ser usado sozinho
 // Sempre que utilizo a palavra else, preciso de um if antes
 // Eu posso ter vários else ifs na checagem
-// Só posso ter um else na checagem
+// Só posso ter um else na checagem (final)
 // Podemos usar condições sem else if, utilizando apenas if e else
 
 // const hora = 50;
@@ -22,4 +22,3 @@ Entre 18 - 23 - Boa noite
 //   console.log('Olá');
 // }
 
-const tenhoGrana = 'Luiz';

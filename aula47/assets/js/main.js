@@ -1,14 +1,16 @@
 function relogio() {
   function criaHoraDosSegundos(segundos) {
-    const data = new Date(segundos * 1000);
+    const data = new Date(segundos * 1000); // javascript lida com milésimos de segundo
     return data.toLocaleTimeString('pt-BR', {
       hour12: false,
       timeZone: 'UTC'
     });
   }
 
+
+
   const relogio = document.querySelector('.relogio');
-  let segundos = 0;
+  let segundos = 0; // essa variável está mantendo um estado do relógio
   let timer;
 
   function iniciaRelogio() {
@@ -19,7 +21,8 @@ function relogio() {
   }
 
   document.addEventListener('click', function(e) {
-    const el = e.target;
+    const el = e.target; // pega o elemento que foi clicado
+    console.log('estou clicando em -> ', el);
 
     if (el.classList.contains('zerar')) {
       clearInterval(timer);
@@ -36,7 +39,7 @@ function relogio() {
 
     if (el.classList.contains('pausar')) {
       clearInterval(timer);
-      relogio.classList.add('pausado');
+      relogio.classList.add('pausado'); // adiciona a classe pausado com a vermelha no texto 
     }
   });
 }
