@@ -2,11 +2,13 @@ const inputTarefa = document.querySelector('.input-tarefa');
 const btnTarefa = document.querySelector('.btn-tarefa');
 const tarefas = document.querySelector('.tarefas');
 
+// funcao exclusiva só para criar li
 function criaLi() {
   const li = document.createElement('li');
   return li;
 }
 
+// exluciva pra lidar com o enter no campo de input
 inputTarefa.addEventListener('keypress', function(e) {
   if (e.keyCode === 13) {
     if (!inputTarefa.value) return;
@@ -14,13 +16,14 @@ inputTarefa.addEventListener('keypress', function(e) {
   }
 });
 
+// funcao exluciva para limpar input
 function limpaInput() {
   inputTarefa.value = '';
   inputTarefa.focus();
 }
 
 function criaBotaoApagar(li) {
-  li.innerText += ' ';
+  li.innerText += ' '; // li limpa campo
   const botaoApagar = document.createElement('button');
   botaoApagar.innerText = 'Apagar';
   // botaoApagar.classList.add('apagar');
@@ -30,12 +33,12 @@ function criaBotaoApagar(li) {
 }
 
 function criaTarefa(textoInput) {
-  const li = criaLi();
-  li.innerText = textoInput;
-  tarefas.appendChild(li);
-  limpaInput();
-  criaBotaoApagar(li);
-  salvarTarefas();
+  const li = criaLi(); // li recebe a funcao que cria li
+  li.innerText = textoInput; // li recebe o texto do input
+  tarefas.appendChild(li); // div tarefas recebe li
+  limpaInput(); // limpa o input
+  criaBotaoApagar(li); // cria botao apagar do item li 
+  salvarTarefas(); // salva as tarefas 
 }
 
 btnTarefa.addEventListener('click', function() {
