@@ -1,3 +1,6 @@
+// let in ... = retorna os índices
+// let of ... = retorna os valores
+
 // For in -> lê os índices ou chaves do objeto
 //                 0       1      2
 const pessoa = {

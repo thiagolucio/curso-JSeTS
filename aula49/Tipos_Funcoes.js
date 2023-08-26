@@ -21,7 +21,8 @@ funcaoArrow();
 
 // Dentro de um objeto
 const obj = {
-  falar() {
+  falar() {  // transforma um método em objeto
+    // falar: function() { 
     console.log('Estou falando...');
   }
 };
