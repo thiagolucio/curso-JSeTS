@@ -1,9 +1,16 @@
+/*
+FUNCOES CALLBACK
+As funções JavaScript são executadas na sequência em que são chamadas. Não na sequência em que são definidos.
+*/
+
+// funcao que retorna um valor aleatório arrendado entre 1000 e 3000 em milissegundos
 function rand(min = 1000, max = 3000) {
   const num = Math.random() * (max - min) +
     min;
   return Math.floor(num);
 }
 
+// funcao de callBack 1
 function f1(callback) {
   setTimeout(function() {
     console.log('f1');
@@ -25,6 +32,7 @@ function f3(callback) {
   }, rand());
 }
 
+// Callback de uma forma mais elegante e correta
 f1(f1Callback);
 
 function f1Callback() {
@@ -38,3 +46,12 @@ function f2Callback() {
 function f3Callback() {
   console.log('Olá mundo!');
 }
+
+// CallBack Hell - Callbacks dependentes e encadeados - Tipo boneca russa - desaconselhável mas importante saber
+// f1(function() {
+//   f2(function() {
+//     f3(function() {
+//       console.log('Finalizou!');
+//     });
+//   });
+// });
