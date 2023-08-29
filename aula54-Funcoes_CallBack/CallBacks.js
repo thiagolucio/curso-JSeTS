@@ -10,7 +10,6 @@ function rand(min = 1000, max = 3000) {
   return Math.floor(num);
 }
 
-// funcao de callBack 1
 function f1(callback) {
   setTimeout(function() {
     console.log('f1');
@@ -32,26 +31,29 @@ function f3(callback) {
   }, rand());
 }
 
+// Callbacks dependentes e encadeados - Tipo boneca russa - desaconselhável mas importante saber
+f1(function() {
+  f2(function() {
+    f3(function() {
+      console.log('Finalizou!');
+    });
+  });
+});
+
 // Callback de uma forma mais elegante e correta
-f1(f1Callback);
+// f1(f1Callback);
 
-function f1Callback() {
-  f2(f2Callback);
-}
+// function f1Callback() {
+//   f2(f2Callback);
+// }
 
-function f2Callback() {
-  f3(f3Callback);
-}
+// function f2Callback() {
+//   f3(f3Callback);
+// }
 
-function f3Callback() {
-  console.log('Olá mundo!');
-}
+// function f3Callback() {
+//   console.log('Olá mundo!');
+// }
 
-// CallBack Hell - Callbacks dependentes e encadeados - Tipo boneca russa - desaconselhável mas importante saber
-// f1(function() {
-//   f2(function() {
-//     f3(function() {
-//       console.log('Finalizou!');
-//     });
-//   });
-// });
+
+
