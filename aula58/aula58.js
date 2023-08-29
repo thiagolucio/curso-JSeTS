@@ -1,6 +1,6 @@
 // Função construtora -> objetos
 // Função fabrica -> objetos
-// Construtora -> Pessoa (new)
+// Construtora -> Pessoa (new) - usa o new ... 
 function Pessoa(nome, sobrenome) {
   // Atributos ou métodos privados
   // const ID = 123456;
