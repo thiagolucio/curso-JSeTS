@@ -76,7 +76,7 @@ function salvarTarefas() {
 }
 
 function adicionaTarefasSalvas() {
-  const tarefas = localStorage.getItem('tarefas'); // tarefas recebe o lista string salva
+  const tarefas = localStorage.getItem('tarefas'); // tarefas recebe o lista string salva. localStorage só aceita Strings. 
   // JSON.parse(item/ objeto) // converte de volta para um objeto
   const listaDeTarefas = JSON.parse(tarefas); // listaDeTarefas recebe o array de tarefas convertido
 
