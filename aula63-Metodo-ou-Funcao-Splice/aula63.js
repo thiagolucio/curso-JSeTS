@@ -23,15 +23,15 @@ na funcao acima vc indica:
 // pop - Índices Negativos
 // const removidos = nomes.splice(-1, 1); // remove Júlia(-1)
 // const removidos = nomes.splice(-3, 2); // remove Eduardo(-3) e Gabriel(-2)
-// const removidos = nomes.splice(-2, Number.MAX_VALUE); // começa a remover de Gabriel(-2) ate o infinito deletando
+// const removidos = nomes.splice(-2, Numbe r.MAX_VALUE); // começa a remover de Gabriel(-2) ate o infinito deletando
 
 // Push
-const removidos = nomes.splice(nomes.length, 0, 'Thiago', 'Lúcio'); 
+// const removidos = nomes.splice(nomes.length, 0, 'Thiago', 'Lúcio');
 // Vai adicionar Thiago e Lúcio na última posicao. Vc também poderia usar o push --- nomes.push() e até mesmo o unshift
 
+// unshift
+const removidos = nomes.splice(0, 0, 'Thiago', 'Raquel');
 
-// shift
-// const removidos = nomes.splice(0, 1); 
 
 
 console.log(' Array original: ', nomes, '\n','Elemento removido: ', removidos);
