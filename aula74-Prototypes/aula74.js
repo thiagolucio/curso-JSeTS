@@ -13,20 +13,23 @@ do JS vai tentar encontrar este membro no próprio objeto e depois a cadeia
 de protótipos é usada até o topo (null) até encontrar (ou não) tal membro.
 */
 
+// Construtora -> molde (classe)
 function Pessoa(nome, sobrenome) {
   this.nome = nome;
   this.sobrenome = sobrenome;
-  // this.nomeCompleto = () => 'ORIGINAL: ' + this.nome + ' ' + this.sobrenome;
+  // this.nomeCompleto = () => 'ORIGINAL: ' + this.nome + ' ' + this.sobrenome; // este tem prioridade e subscreverá o retorno da função dentro do protótipo (linha 26)
 }
 
 // Pessoa.prototype === pessoa1.__proto__
 
+// vc poderá criar uma propriedade nova chamada nomeCompleto que estará no protótipo deste método
 Pessoa.prototype.nomeCompleto = function() {
   return this.nome + ' ' + this.sobrenome;
 };
 
-const pessoa1 = new Pessoa('Luiz', 'O.'); // <- Pessoa = Função construtora
-const pessoa2 = new Pessoa('Maria', 'A.'); // <- Pessoa = Função construtora
+// instância da construtora
+const pessoa1 = new Pessoa('Thiago', 'Lucio Bittencourt'); // <- Pessoa = Função construtora
+const pessoa2 = new Pessoa('Raquel', 'Gouvea'); // <- Pessoa = Função construtora
 const data = new Date(); // <-- Date = Função construtora
 
 console.dir(pessoa1);

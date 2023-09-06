@@ -1,4 +1,5 @@
-// 705.484.450-52 070.987.720-03
+// CPF 1: 705.484.450-52 
+// CPF 2: 070.987.720-03
 /*
 7x  0x 5x 4x 8x 4x 4x 5x 0x
 10  9  8  7  6  5  4  3  2
@@ -14,11 +15,18 @@ Se o número digito for maior que 9, consideramos 0.
 11 - (284 % 11) = 2 (Primeiro dígito)
 Se o número digito for maior que 9, consideramos 0.
 */
+
+// let cpf =  '705.484.450-52';
+// let cpfLimpo = cpf.replace(/\D+/g, '');
+// cpfArray = Array.from(cpfLimpo);
+// console.log(cpfArray.reduce((ac, val) => ac + Number(val), 0));
+
+
 function ValidaCPF(cpfEnviado) {
   Object.defineProperty(this, 'cpfLimpo', {
     enumerable: true,
     get: function() {
-      return cpfEnviado.replace(/\D+/g, '');
+      return cpfEnviado.replace(/\D+/g, ''); // essa expressão regular representa "tudo que não for um número" vai ser substituido por nada. 
     }
   });
 }
