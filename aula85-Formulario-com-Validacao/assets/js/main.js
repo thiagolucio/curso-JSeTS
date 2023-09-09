@@ -1,21 +1,21 @@
 class ValidaFormulario {
-  constructor() {
+  constructor() { // A funcao construtora é construida aqui para que declarar os métodos que vc poderá usar em outras classes a partir desta / The constructor function it's build to declare the methods you can use in other classes.
     this.formulario = document.querySelector('.formulario');
     this.eventos();
   }
 
   eventos() {
-    this.formulario.addEventListener('submit', e => {
-      this.handleSubmit(e);
+    this.formulario.addEventListener('submit', e => { // Funcao de callback chamada por um evento enviar. A funcao arrow nao permite a alteração do this
+      this.handleSubmit(e); 
     });
   }
 
   handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault(); // usado para não executar o evento padrao e poder continuar a tratar as validações e regras controlando a hora de enviar o formulário
     const camposValidos = this.camposSaoValidos();
     const senhasValidas = this.senhasSaoValidas();
 
-    if(camposValidos && senhasValidas) {
+    if(camposValidos && senhasValidas) { // se todas as regras forem atendidas ele enviar o formulário
       alert('Formulário enviado.');
       this.formulario.submit();
     }
@@ -49,7 +49,7 @@ class ValidaFormulario {
     }
 
     for(let campo of this.formulario.querySelectorAll('.validar')) {
-      const label = campo.previousElementSibling.innerText;
+      const label = campo.previousElementSibling.innerText; // Pega o text do label do campo anterior ao atual. previousElementSibling = Elemento irmão anterior.
 
       if(!campo.value) {
         this.criaErro(campo, `Campo "${label}" não pode estar em branco.`);
@@ -78,7 +78,7 @@ class ValidaFormulario {
       valid = false;
     }
 
-    if(!usuario.match(/^[a-zA-Z0-9]+$/g)) {
+    if(!usuario.match(/^[a-zA-Z0-9]+$/g)) { // regex = qq letra entre a e z minúsculo, qq letra entre A e Z maiúsculo, qq número entre 0 a 9 isso repetidas (sinal de +$ ) vezes
       this.criaErro(campo, 'Nome de usuário precisar conter apenas letras e/ou números.');
       valid = false;
     }
@@ -101,8 +101,8 @@ class ValidaFormulario {
     const div = document.createElement('div');
     div.innerHTML = msg;
     div.classList.add('error-text');
-    campo.insertAdjacentElement('afterend', div);
+    campo.insertAdjacentElement('afterend', div); // Esse comando insere depois do próprio campo a div error-text.
   }
 }
 
-const valida = new ValidaFormulario();
+const valida = new ValidaFormulario(); // cria um novo baseado no constructor do Original. Ele tipo clona a classe acima
