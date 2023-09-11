@@ -1,5 +1,6 @@
 /*
   Fetch é uma Promisse especializada na busca usado pra buscar URL no JS
+  https://developer.mozilla.org/pt-BR/docs/Web/API/Console
 */
 
 // Primeiro exemplo de fetch

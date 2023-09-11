@@ -1,9 +1,15 @@
-fetch('pessoas.json')
-  .then(resposta => resposta.json())
-  .then(json => carregaElementosNaPagina(json));
+// USANDO AXIOS - Axios é uma lib de JS que faz requisicoes HTTP
 
-// axios('pessoas.json')
-//   .then(resposta => carregaElementosNaPagina(resposta.data));
+
+// fetch Jeito normal na mão
+// fetch('pessoas.json')
+//   .then(resposta => resposta.json())
+//   .then(json => carregaElementosNaPagina(json));
+
+
+// Mesmo Fetch Processo feito com o Axios
+axios('pessoas.json')
+  .then(resposta => carregaElementosNaPagina(resposta.data));
 
 function carregaElementosNaPagina(json) {
   const table = document.createElement('table');
@@ -12,13 +18,16 @@ function carregaElementosNaPagina(json) {
     const tr = document.createElement('tr');
 
     let td1 = document.createElement('td');
-    td1.innerHTML = pessoa.nome;
+    td1.innerHTML = pessoa.nome; 
     tr.appendChild(td1);
 
     let td2 = document.createElement('td');
     td2.innerHTML = pessoa.idade;
     tr.appendChild(td2);
 
+    let td3 = document.createElement('td');
+    td3.innerHTML = Intl.NumberFormat('pt-BR').format(pessoa.salario);
+    tr.appendChild(td3);
     table.appendChild(tr);
   }
 
