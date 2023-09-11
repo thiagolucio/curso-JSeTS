@@ -1,3 +1,12 @@
+/*
+Async/Await com Try Cat é uma conjugação bastante perfeita hoje em dia pra sequenciar funcoes que 
+precisam ser processadas após algum tempo. Sendo em sequencia ou nao
+
+Possui 3 estados:
+Pendente (pending)
+Resolvida (fulfilled)
+Rejeitada (rejected)
+*/
 function rand(min = 0, max = 3) {
   min *= 1000;
   max *= 1000;
@@ -41,11 +50,13 @@ async function executa() {
     const fase1 = await esperaAi('Fase 1', 1000);
     console.log(fase1);
 
-    setTimeout(function() {
+    setTimeout(function() { // usou a funcao anterior pra poder afetar o tempo dessa aqui
       console.log('Essa promise estava pendente', fase1);
     }, 1100);
 
     const fase2 = await esperaAi('Fase 2', rand());
+    // const fase2 = await esperaAi(2, rand());
+
     console.log(fase2);
 
     const fase3 = await esperaAi('Fase 3', rand());
@@ -53,10 +64,10 @@ async function executa() {
 
     console.log('Terminamos na fase:', fase3);
   } catch(e) {
-    console.log(e);
+    console.log('Este é o erro::::> ',e);
   }
 }
-// executa();
+executa();
 
-const teste2 = esperaAi('qlq', 5000);
-console.log(teste2);
+// const teste2 = esperaAi('qlq', 5000);
+// console.log(teste2);
