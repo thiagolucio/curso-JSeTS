@@ -11,3 +11,4 @@ exports.nome = nome;
 module.exports.sobrenome = sobrenome;
 exports.outraCoisa = 'Outra coisa';
 this.Pessoa = Pessoa;
+// this.qualquerCoisa = 'ao que eu quiser exportar';
