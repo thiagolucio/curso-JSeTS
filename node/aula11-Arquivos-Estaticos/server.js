@@ -5,6 +5,7 @@ const path = require('path');
 
 app.use(express.urlencoded({ extended: true }));
 
+// Abaixo está sendo indicado o caminho absoluto para a pasta "public" onde serão armazenados os arquivos estáticos 
 app.use(express.static(path.resolve(__dirname, 'public')));
 
 app.set('views', path.resolve(__dirname, 'src', 'views'));
