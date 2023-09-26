@@ -23,12 +23,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.resolve(__dirname, 'public')));
 
 const sessionOptions = session({
-  secret: 'akasdfj0út23453456+54qt23qv  qwf qwer qwer qewr asdasdasda a6()',
+  secret: 'akasdfj0út23453456+54qt23qv  qwf qwer qwer qewr asdasdasda a6()', // vc pode criar uma chave secreta como desejar
+  // store: new MongoStore({ mongooseConnection: mongoose.connection }),
   store: MongoStore.create({ mongoUrl: process.env.CONNECTIONSTRING }),
   resave: false,
   saveUninitialized: false,
   cookie: {
-    maxAge: 1000 * 60 * 60 * 24 * 7,
+    maxAge: 1000 * 60 * 60 * 24 * 7, // Explicando no final ...
     httpOnly: true
   }
 });
@@ -48,3 +49,15 @@ app.on('pronto', () => {
     console.log('Servidor executando na porta 3000');
   });
 });
+
+
+/* 
+Aqui explica-se melhor o calculo de conversao:
+1000 = milisegundos
+60 = 1 minuto (60 segundos)
+60 = 1 hora (60 minutos)
+24 = 1 dia
+7 = 1 semana
+
+
+*/
