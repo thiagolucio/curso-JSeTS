@@ -1,3 +1,5 @@
+// O certo é o controller importar o MODEL aqui antes e aqui neste modelo temos a pasta models/HomeModel.js
+
 exports.paginaInicial = (req, res) => {
   res.render('index', {
     titulo: 'Este será o título da página',
