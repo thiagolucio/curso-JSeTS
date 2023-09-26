@@ -4,6 +4,7 @@ exports.middlewareGlobal = (req, res, next) => {
 };
 
 exports.outroMiddleware = (req, res, next) => {
+  console.log('Esse é o outro middleware');
   next();
 };
 
@@ -14,6 +15,6 @@ exports.checkCsrfError = (err, req, res, next) => {
 };
 
 exports.csrfMiddleware = (req, res, next) => {
-  res.locals.csrfToken = req.csrfToken();
+  res.locals.csrfToken = req.csrfToken(); // a variavel "csrfToken" local que ele criou em locals vai receber um token randomico
   next();
 };
