@@ -1,6 +1,7 @@
 const Login = require('../models/LoginModel');
 
 exports.index = (req, res) => {
+  console.log('Dados da Sessão', req.session.user);
   if(req.session.user) return res.render('login-logado');
   return res.render('login');
 };
@@ -42,7 +43,7 @@ exports.login = async function(req, res) {
     }
 
     req.flash('success', 'Você entrou no sistema.');
-    req.session.user = login.user;
+    req.session.user = login.user; // se a sessão do usuário é a mesma do usuário logado
     req.session.save(function() {
       return res.redirect('back');
     });

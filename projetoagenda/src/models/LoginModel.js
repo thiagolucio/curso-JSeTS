@@ -16,16 +16,21 @@ class Login {
     this.user = null;
   }
 
+  // O processo de login
   async login() {
-    this.valida();
-    if(this.errors.length > 0) return;
-    this.user = await LoginModel.findOne({ email: this.body.email });
-
+    this.valida(); // chama validacoes
+    if(this.errors.length > 0) return; // retorna os erros destas validacoes e mostra
+    this.user = await LoginModel.findOne({ email: this.body.email }); // busca usuários com o mesmo email 
+    
+    // Abaixo se ele não encontrar nenhum usuário ele retorna mensagem flash avisando que não encontrou o usuário
     if(!this.user) {
-      this.errors.push('Usuário não existe.');
+      this.errors.push('Usuário não existe.'); // para mair segurança melhor informar que usuário e senha estão errados somente
       return;
     }
-
+    /*
+      Aqui ele verifica se a senha digitada/ enviada é a mesma que está salva descriptografando ele pra comparar ou utilizando o mesmo calculo 
+    criptográfico na senha que está enviando pra ver se ficam iguais as duas aplicando a criptografia.
+    */
     if(!bcryptjs.compareSync(this.body.password, this.user.password)) {
       this.errors.push('Senha inválida');
       this.user = null;
@@ -56,7 +61,6 @@ class Login {
 
   valida() {
     this.cleanUp();
-
     // Validação dos campos de login
     // O e-mail precisa ser válido
     if(!validator.isEmail(this.body.email)) this.errors.push('E-mail inválido');

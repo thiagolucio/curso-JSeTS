@@ -27,7 +27,7 @@ exports.register = async(req, res) => {
 };
 
 exports.editIndex = async function(req, res) {
-  if(!req.params.id) return res.render('404');
+  if(!req.params.id) return res.render('404'); // se o parametro "ID" do usuário não for enviado ele já retorna o erro 404
 
   const contato = await Contato.buscaPorId(req.params.id);
   if(!contato) return res.render('404');
