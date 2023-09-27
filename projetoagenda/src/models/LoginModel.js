@@ -34,28 +34,30 @@ class Login {
   }
 
   async register() {
-    this.valida();
-    if(this.errors.length > 0) return;
+    this.valida(); // executa a funcao valida
+    if(this.errors.length > 0) return; // verifica se existe qualquer erro é retornado e se sim retorna o erro
 
-    await this.userExists();
+    await this.userExists(); // vai chamar a funcao que verifica se o usuario já existe
+    if(this.errors.length > 0) return; // verifica se existe qualquer erro é retornado e se sim retorna o erro
 
-    if(this.errors.length > 0) return;
+    // Criptografar a senha usando o bcryptjs importado pacote do node
+    const salt = bcryptjs.genSaltSync(); // define um salto para ser aplicado no calculo do hash da senha (default = 10)
+    this.body.password = bcryptjs.hashSync(this.body.password, salt); // o pacote bcryptjs faz o calculo do hash da senha e o salto aplicado
 
-    const salt = bcryptjs.genSaltSync();
-    this.body.password = bcryptjs.hashSync(this.body.password, salt);
-
+    // Ele recebe a promessa no hora certa dele e cria mais um usuário
     this.user = await LoginModel.create(this.body);
   }
 
+  // compara se já existe um usuário com mesmo email
   async userExists() {
-    this.user = await LoginModel.findOne({ email: this.body.email });
-    if(this.user) this.errors.push('Usuário já existe.');
+    this.user = await LoginModel.findOne({ email: this.body.email }); // procure um (findOne) registro de usuário com o mesmo email (this.body.email) que está sendo enviado
+    if(this.user) this.errors.push('Usuário já existe.'); //  se sim entao mandar essa mensagem
   }
 
   valida() {
     this.cleanUp();
 
-    // Validação
+    // Validação dos campos de login
     // O e-mail precisa ser válido
     if(!validator.isEmail(this.body.email)) this.errors.push('E-mail inválido');
 
@@ -67,7 +69,7 @@ class Login {
 
   cleanUp() {
     for(const key in this.body) {
-      if(typeof this.body[key] !== 'string') {
+      if(typeof this.body[key] !== 'string') { // se a chave for diferente de string ... remove (pra remover espaços em branco)
         this.body[key] = '';
       }
     }
