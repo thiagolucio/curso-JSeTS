@@ -37,7 +37,7 @@ const sessionOptions = session({
     httpOnly: true
   }
 });
-app.use(sessionOptions);
+app.use(sessionOptions); // usar as configurações de sessão
 app.use(flash());
 
 app.set('views', path.resolve(__dirname, 'src', 'views'));
