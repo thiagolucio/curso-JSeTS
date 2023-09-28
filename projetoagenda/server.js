@@ -6,7 +6,7 @@ mongoose.connect(process.env.CONNECTIONSTRING,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: false
+    useFindAndModify: false // para usar o findOneAnd(Update, Delete) vc precisa declarar esse cara como false
   })
   .then(() => {
     app.emit('pronto');

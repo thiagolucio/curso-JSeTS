@@ -51,30 +51,29 @@ Contato.prototype.cleanUp = function() {
 };
 
 Contato.prototype.edit = async function(id) {
-  if(typeof id !== 'string') return;
+  if(typeof id !== 'string') return; // se o id for diferente de uma string já retorne o erro
   this.valida();
-  if(this.errors.length > 0) return;
-  this.contato = await ContatoModel.findByIdAndUpdate(id, this.body, { new: true });
+  if(this.errors.length > 0) return; // se tiver mais de 0 erros (qualquer erro) retornando de valida() entaum retorne o erro
+  this.contato = await ContatoModel.findByIdAndUpdate(id, this.body, { new: true }); // encontra o dado pelo id e atualiza as informações deste usuário cadastrado "findByIsAndUpdate" é uma funcao que procura pelo id e atualiza as infos
 };
 
 // Métodos estáticos
 Contato.buscaPorId = async function(id) {
-  if(typeof id !== 'string') return;
-  const contato = await ContatoModel.findById(id);
-  return contato;
+  if(typeof id !== 'string') return; // se o id for diferente de string retorna o erro
+  const contato = await ContatoModel.findById(id); // busca pelo id se existe já um id igual
+  return contato; // retorna o contato se tudo ok
 };
 
 Contato.buscaContatos = async function() {
   const contatos = await ContatoModel.find()
-    .sort({ criadoEm: -1 });
+    .sort({ criadoEm: -1 }); // para que os contatos mostrados sejam ordenados pela ordem em que foram criados decrescente. Isso é. Do mais recente pro menos recente. Ordem decrescente. Por isso o "-1". "-1 = descrescente/ 1 = crescente"
   return contatos;
 };
 
-Contato.delete = async function(id) {
-  if(typeof id !== 'string') return;
-  const contato = await ContatoModel.findOneAndDelete({_id: id});
-  return contato;
+Contato.delete = async function(id) { // a funcao recebe o id deletado da ContatoController (linha 68)
+  if(typeof id !== 'string') return; // verifica se o id é diferente de string e se for retorna
+  const contato = await ContatoModel.findOneAndDelete({_id: id}); // contato recebe o usuário procurado pelo ID e deletado...Vc deve indicar o objeto com filtro id pra poder deletar exatamente o id desejado
+  return contato; // retornando o contato no final
 };
-
 
 module.exports = Contato;
