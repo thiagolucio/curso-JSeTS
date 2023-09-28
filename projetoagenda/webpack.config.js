@@ -17,6 +17,9 @@ module.exports = {
           presets: ['@babel/env']
         }
       }
+    } {
+      test: /\.css$/,
+      use: ['style-loader', 'cs-loader']
     }]
   },
   devtool: 'source-map'
