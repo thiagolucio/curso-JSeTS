@@ -25,8 +25,6 @@ Contato.prototype.register = async function() {
 
 Contato.prototype.valida = function() {
   this.cleanUp();
-
-  // Validação
   // O e-mail precisa ser válido
   if(this.body.email && !validator.isEmail(this.body.email)) this.errors.push('E-mail inválido');
   if(!this.body.nome) this.errors.push('Nome é um campo obrigatório.');
@@ -59,8 +57,8 @@ Contato.prototype.edit = async function(id) {
 
 // Métodos estáticos
 Contato.buscaPorId = async function(id) {
-  if(typeof id !== 'string') return; // se o id for diferente de string retorna o erro
-  const contato = await ContatoModel.findById(id); // busca pelo id se existe já um id igual
+  if(typeof id !== 'string') return; // Se o ID for diferente de string retorna id
+  const contato = await ContatoModel.findById(id); // procura por um id igual ao id enviado
   return contato; // retorna o contato se tudo ok
 };
 
